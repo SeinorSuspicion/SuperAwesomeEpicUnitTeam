@@ -21,13 +21,13 @@ public class Insert_User extends HttpServlet {
       String firstName = request.getParameter("firstName");
       String lastName = request.getParameter("lastName");
       String accountNum = request.getParameter("accountNum");
-      String accountBalance = request.getParameter("accountBalance");
+      String accountBalance = null;
       String address = request.getParameter("address");
       String phone = request.getParameter("phone");
       String email = request.getParameter("email");
 
       Connection connection = null;
-      String insertSql = " INSERT INTO Users (id, FIRST_NAME, LAST_NAME, ACCOUNT_NUM, ACCOUNT_BALANCE, ADDRESS, PHONE, EMAIL) values (default, ?,?,?,?,?,?,?)";
+      String insertSql = " INSERT INTO Users (id, FIRST_NAME, LAST_NAME, ACCOUNT_NUM, ADDRESS, PHONE, EMAIL) values (default, ?,?,?,?,?,?)";
 
       try {
          LibraryDBConnection.getDBConnection();
@@ -36,10 +36,10 @@ public class Insert_User extends HttpServlet {
          preparedStmt.setString(1, firstName);
          preparedStmt.setString(2, lastName);
          preparedStmt.setString(3, accountNum);
-         preparedStmt.setString(4, accountBalance);
-         preparedStmt.setString(5, address);
-         preparedStmt.setString(6, phone);
-         preparedStmt.setString(7, email);
+         //preparedStmt.setString(4, accountBalance);
+         preparedStmt.setString(4, address);
+         preparedStmt.setString(5, phone);
+         preparedStmt.setString(6, email);
          preparedStmt.execute();
          connection.close();
       } catch (Exception e) {
@@ -61,14 +61,15 @@ public class Insert_User extends HttpServlet {
             "  <li><b>First Name</b>: " + firstName + "\n" + //
             "  <li><b>Last Name</b>: " + lastName + "\n" + //
             "  <li><b>Account Number</b>: " + accountNum + "\n" + //
-            "  <li><b>Account Balance</b>: " + accountBalance + "\n" + //
+           // "  <li><b>Account Balance</b>: " + accountBalance + "\n" + //
             "  <li><b>Address</b>: " + address + "\n" + //
             "  <li><b>Phone</b>: " + phone + "\n" + //
             "  <li><b>Email</b>: " + email + "\n" + //
 
             "</ul>\n");
 
-      out.println("<a href=/Library_Database/Search_user.html</a> <br>");
+      out.println("<a href=/Library_Database/Insert_user.html>Add Another</a> <br>");
+      out.println("<a href=/Library_Database/Homepage.html>Return Home</a> <br>");
       out.println("</body></html>");
    }
 

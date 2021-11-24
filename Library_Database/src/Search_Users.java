@@ -59,7 +59,7 @@ public class Search_Users extends HttpServlet {
             String first_name = rs.getString("FIRST_NAME").trim();
             String last_name = rs.getString("LAST_NAME").trim();
             String account_num = rs.getString("ACCOUNT_NUM").trim();
-            String account_balance = rs.getString("ACCOUNT_BALANCE").trim();
+            //String account_balance = rs.getString("ACCOUNT_BALANCE").trim();
             String address = rs.getString("ADDRESS").trim();
             String phone = rs.getString("PHONE").trim(); 
             String email = rs.getString("EMAIL").trim(); 
@@ -67,16 +67,17 @@ public class Search_Users extends HttpServlet {
 
             if (keyword.isEmpty() || account_num.contains(keyword) || (first_name.contains(keyword) && last_name.contains(keyword) )) {
                out.println("ID: " + id + "<br>");
-               out.println("User's Name: " + first_name + last_name + "<br>");
+               out.println("User's Name: " + first_name + " " + last_name + "<br>");
                out.println("Account Number: " + account_num + "<br>");
-               out.println("Account Balance: " + account_balance + "<br>");
+               //out.println("Account Balance: " + account_balance + "<br>");
                out.println("Address: " + address + "<br>");
                out.println("Phone: " + phone + "<br>");
                out.println("Email: " + email + "<br>");
                out.println("<br>");
             }
          }
-         out.println("<a href=/Library_Database/Search_Users.html>Search Data</a> <br>");
+         out.println("<a href=/Library_Database/Search_Users.html>Search Another</a> <br>");
+         out.println("<a href=/Library_Database/Homepage.html>Return Home</a> <br>");
          out.println("</body></html>");
          rs.close();
          preparedStatement.close();
