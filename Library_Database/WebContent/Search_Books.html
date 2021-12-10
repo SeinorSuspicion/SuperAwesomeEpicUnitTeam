@@ -32,26 +32,22 @@ footer {
 
 <body>
 <header>
-<h1> Add New User </h1>
+<h1> Book Lookup </h1>
 </header>
 
 <nav>
-<a href="/Library_Database/Homepage_Admin.html">Home</a> <br>
+<a href="/Library_Database/Homepage_User.html">Home</a> <br>
+<!-- <a href="/Library_Database/Insert_user.html">Add New Library User</a> <br> may need later--> 
 </nav>
 
 <section>
-	<h1>Add New User</h1>
+	<h1>Search Books</h1>
 	
-	<form action="Insert_User" method="POST">
+	<form action="Search_Books" method="POST">
 	
-		First Name: <input type="text" name="firstName"> <br />
-		Last Name: <input type="text" name="lastName"> <br />
-		Account Number: <input type="text" name="accountNum"> <br />
-		Address: <input type="text" name="address"> <br />
-		Phone: <input type="text" name="phone"> <br />
-		Email: <input type="text" name="email"> <br />
+		Search by Title or Genre: <input type="text" name="keyword"> <br />
 		
-		<input type="submit" value="Submit" />
+		<input type="submit" value="Search" />
 	</form>
 
 </section>

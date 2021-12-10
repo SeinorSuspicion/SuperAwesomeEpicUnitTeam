@@ -11,11 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Search_Users")
-public class Search_Users extends HttpServlet {
+@WebServlet("/Search_Books")
+public class Search_Books extends HttpServlet {
    private static final long serialVersionUID = 1L;
 
-   public Search_Users() {
+   public Search_Books() {
       super();
    }
 
@@ -43,42 +43,40 @@ public class Search_Users extends HttpServlet {
          connection = LibraryDBConnection.connection;
 
          if (keyword.isEmpty()) {
-            String selectSQL = "SELECT * FROM Users";
+            String selectSQL = "SELECT * FROM Books";
             preparedStatement = connection.prepareStatement(selectSQL);
          } else {
-            String selectSQL = "SELECT * FROM Users WHERE ACCOUNT_NUM LIKE ?"; //; || (FIRST_NAME LIKE ? && LAST_NAME LIKE ?)";
-            String theName = keyword + "%";
+            String selectSQL = "SELECT * FROM Books WHERE TITLE LIKE ? || GENRE LIKE ? ";
+            String input = keyword + "%";
             preparedStatement = connection.prepareStatement(selectSQL);
-            preparedStatement.setString(1, theName);
-            //preparedStatement.setString(2, theName);
+            preparedStatement.setString(1, input);
+            preparedStatement.setString(2, input);
          }
          ResultSet rs = preparedStatement.executeQuery();
 
          while (rs.next()) {
             int id = rs.getInt("id");
-            String first_name = rs.getString("FIRST_NAME").trim();
-            String last_name = rs.getString("LAST_NAME").trim();
-            String account_num = rs.getString("ACCOUNT_NUM").trim();
-            //String account_balance = rs.getString("ACCOUNT_BALANCE").trim();
-            String address = rs.getString("ADDRESS").trim();
-            String phone = rs.getString("PHONE").trim(); 
-            String email = rs.getString("EMAIL").trim(); 
+            String book_title = rs.getString("TITLE").trim();
+            String author = rs.getString("AUTHOR").trim();
+            String isbn = rs.getString("ISBN").trim();
+            String genre = rs.getString("GENRE").trim();
+            String total_copies = rs.getString("TOTAL_COPIES").trim(); 
+            String available_copies = rs.getString("AVAILABLE_COPIES").trim(); 
   
 
-            if (keyword.isEmpty() || account_num.contains(keyword) || (first_name.contains(keyword) && last_name.contains(keyword) )) {
+            if (keyword.isEmpty() || book_title.contains(keyword) || genre.contains(keyword)) {
                out.println("ID: " + id + "<br>");
-               out.println("User's Name: " + first_name + " " + last_name + "<br>");
-               out.println("Account Number: " + account_num + "<br>");
-               //out.println("Account Balance: " + account_balance + "<br>");
-               out.println("Address: " + address + "<br>");
-               out.println("Phone: " + phone + "<br>");
-               out.println("Email: " + email + "<br>");
-               out.println("HELLO MICHELLE <br>");
+               out.println("Title: " + book_title + "<br>");
+               out.println("Author: " + author + "<br>");
+               out.println("ISBN Number: " + isbn + "<br>");
+               out.println("Genre: " + genre + "<br>");
+               out.println("Total Copies: " + total_copies + "<br>");
+               out.println("Available Copies: " + available_copies + "<br>");
                out.println("<br>");
             }
          }
-         out.println("<a href=/Library_Database/Search_Users.html>Search Another</a> <br>");
-         out.println("<a href=/Library_Database/Homepage.html>Return Home</a> <br>");
+         out.println("<a href=/Library_Database/Search_Books.html>Search Another</a> <br>");
+         out.println("<a href=/Library_Database/Homepage_User.html>Return Home</a> <br>");
          out.println("</body></html>");
          rs.close();
          preparedStatement.close();
@@ -107,3 +105,4 @@ public class Search_Users extends HttpServlet {
    }
 
 }
+

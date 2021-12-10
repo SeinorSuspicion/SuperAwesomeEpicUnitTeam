@@ -69,7 +69,7 @@ public class Insert_User extends HttpServlet {
             "</ul>\n");
 
       out.println("<a href=/Library_Database/Insert_user.html>Add Another</a> <br>");
-      out.println("<a href=/Library_Database/Homepage.html>Return Home</a> <br>");
+      out.println("<a href=/Library_Database/Homepage_Admin.html>Return Home</a> <br>");
       out.println("</body></html>");
    }
 
