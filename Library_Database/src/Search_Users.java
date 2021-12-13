@@ -73,12 +73,11 @@ public class Search_Users extends HttpServlet {
                out.println("Address: " + address + "<br>");
                out.println("Phone: " + phone + "<br>");
                out.println("Email: " + email + "<br>");
-               out.println("HELLO MICHELLE <br>");
                out.println("<br>");
             }
          }
          out.println("<a href=/Library_Database/Search_Users.html>Search Another</a> <br>");
-         out.println("<a href=/Library_Database/Homepage.html>Return Home</a> <br>");
+         out.println("<a href=/Library_Database/Homepage_User.html>Return Home</a> <br>");
          out.println("</body></html>");
          rs.close();
          preparedStatement.close();
