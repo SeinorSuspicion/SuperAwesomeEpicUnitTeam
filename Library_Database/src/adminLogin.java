@@ -27,7 +27,7 @@ public class adminLogin extends HttpServlet {
         else
         {
            out.println("Password incorrect");
-           RequestDispatcher rs = request.getRequestDispatcher("login.html");
+           RequestDispatcher rs = request.getRequestDispatcher("adminLogin.html");
            rs.include(request, response);
         }
     }  
