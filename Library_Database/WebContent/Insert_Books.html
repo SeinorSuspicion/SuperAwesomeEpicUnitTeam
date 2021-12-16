@@ -1,10 +1,63 @@
-<!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<style>
+header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;	 
+}
+nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:100px;
+    float:left;
+    padding:5px;	      
+}
+section {
+    width:350px;
+    float:left;
+    padding:10px;	 	 
+}
+footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;	 	 
+}
+</style>
 </head>
-<body>
 
+<body>
+<header>
+<h1> Add New Book </h1>
+</header>
+
+<nav>
+<a href="/Library_Database/Homepage_Admin.html">Home</a> <br>
+</nav>
+
+<section>
+	<h1>Add New Book</h1>
+	
+	<form action="Insert_Books" method="POST">
+	
+		Title: <input type="text" name="book_title"> <br />
+		Author: <input type="text" name="author"> <br />
+		ISBN: <input type="text" name="isbn"> <br />
+		Genre: <input type="text" name="genre"> <br />
+		Total Copies: <input type="text" name="total_copies"> <br />
+		Available Copies: <input type="text" name="available_copies"> <br />
+		
+		<input type="submit" value="Submit" />
+	</form>
+
+</section>
+
+<footer>
+Copyright Super Awesome Epic Unit Team 
+</footer>
 </body>
 </html>
