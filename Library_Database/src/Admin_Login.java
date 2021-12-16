@@ -25,7 +25,7 @@ public class Admin_Login extends HttpServlet {
         String password = "adminPassword";
         String pass = request.getParameter("password");
         
-        if(pass == password)
+        if(pass.equals(password))
         {
             RequestDispatcher rs = request.getRequestDispatcher("Homepage_Admin.html");
             rs.forward(request, response);
