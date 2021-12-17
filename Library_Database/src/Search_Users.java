@@ -77,7 +77,7 @@ public class Search_Users extends HttpServlet {
             }
          }
          out.println("<a href=/Library_Database/Search_Users.html>Search Another</a> <br>");
-         out.println("<a href=/Library_Database/Homepage_User.html>Return Home</a> <br>");
+         out.println("<a href=/Library_Database/Homepage_Users.html>Return Home</a> <br>");
          out.println("</body></html>");
          rs.close();
          preparedStatement.close();

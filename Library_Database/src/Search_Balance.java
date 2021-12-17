@@ -50,7 +50,6 @@ public class Search_Balance extends HttpServlet {
             String theName = keyword + "%";
             preparedStatement = connection.prepareStatement(selectSQL);
             preparedStatement.setString(1, theName);
-            //preparedStatement.setString(2, theName);
          }
          ResultSet rs = preparedStatement.executeQuery();
 
@@ -70,14 +69,11 @@ public class Search_Balance extends HttpServlet {
                out.println("User's Name: " + first_name + " " + last_name + "<br>");
                out.println("Account Number: " + account_num + "<br>");
                out.println("Account Balance: " + account_balance + "<br>");
-               //out.println("Address: " + address + "<br>");
-              // out.println("Phone: " + phone + "<br>");
-              // out.println("Email: " + email + "<br>");
                out.println("<br>");
             }
          }
          out.println("<a href=/Library_Database/Search_Balance.html>Search Another</a> <br>");
-         out.println("<a href=/Library_Database/Homepage_User.html>Return Home</a> <br>");
+         out.println("<a href=/Library_Database/Homepage_Users.html>Return Home</a> <br>");
          out.println("</body></html>");
          rs.close();
          preparedStatement.close();
